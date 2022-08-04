@@ -2,7 +2,7 @@
 #### A simple news app build using MVVM architecture.
 
 **Download and test latest version 👇** <br>
-[![OnlyNews](https://img.shields.io/badge/OnlyNews-APK-red.svg?style=for-the-badge&logo=android)](https://github.com/Somnath6646/OnlyNews/raw/master/app/release/app-release.apk)
+[![OnlyNews](https://img.shields.io/badge/OnlyNews-APK-red.svg?style=for-the-badge&logo=android)](add_apk_url)
 
 
 ## General info
