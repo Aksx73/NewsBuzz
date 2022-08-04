@@ -21,8 +21,7 @@ class HeadlineFragment : Fragment() {
     private lateinit var binding: FragmentHeadlinesBinding
     private lateinit var viewModel: NewsViewModel
     private lateinit var newsAdapter: NewsListAdapter
-    val country = Constants.QUERY_COUNTRY
-    val page = Constants.QUERY_PAGE
+
     private var selectedChip = Constants.QUERY_CATEGORY_TECHNOLOGY
 
 
@@ -54,34 +53,34 @@ class HeadlineFragment : Fragment() {
         }
 
         initRecyclerView()
-        viewNewsByCategory()
-        // setSearchView()
+        observeNewsByCategory()
 
         binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.chip_technology -> {
                     viewModel.currentCategory.value = Constants.QUERY_CATEGORY_TECHNOLOGY
-                    viewNewsByCategory()
+                    viewModel.getNewsHeadlinesByCategory()
                 }
                 R.id.chip_science -> {
                     viewModel.currentCategory.value = Constants.QUERY_CATEGORY_SCIENCE
-                    viewNewsByCategory()
+                    viewModel.getNewsHeadlinesByCategory()
+
                 }
                 R.id.chip_sports -> {
                     viewModel.currentCategory.value = Constants.QUERY_CATEGORY_SPORTS
-                    viewNewsByCategory()
+                    viewModel.getNewsHeadlinesByCategory()
                 }
                 R.id.chip_business -> {
                     viewModel.currentCategory.value = Constants.QUERY_CATEGORY_BUSINESS
-                    viewNewsByCategory()
+                    viewModel.getNewsHeadlinesByCategory()
                 }
                 R.id.chip_health -> {
                     viewModel.currentCategory.value = Constants.QUERY_CATEGORY_HEALTH
-                    viewNewsByCategory()
+                    viewModel.getNewsHeadlinesByCategory()
                 }
                 R.id.chip_entertainemnt -> {
                     viewModel.currentCategory.value = Constants.QUERY_CATEGORY_ENTERTAINMENT
-                    viewNewsByCategory()
+                    viewModel.getNewsHeadlinesByCategory()
                 }
             }
         }
@@ -97,8 +96,7 @@ class HeadlineFragment : Fragment() {
         }
     }
 
-    private fun viewNewsByCategory() {
-        viewModel.getNewsHeadlinesByCategory(country, page)
+    private fun observeNewsByCategory() {
         viewModel.newsHeadlinesCategory.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {

@@ -25,6 +25,15 @@ class NewsViewModel(
 ) : AndroidViewModel(app) {
 
 
+    val country = Constants.QUERY_COUNTRY
+    val page = 1
+
+
+    init {
+        getNewsHeadlines(country, page)
+    }
+
+
     //////////////////////////////get news headlines //////////////////////////////////
 
     val newsHeadlines: MutableLiveData<Resource<APIResponse>> = MutableLiveData()
@@ -58,9 +67,10 @@ class NewsViewModel(
 
     init {
         currentCategory.value = Constants.QUERY_CATEGORY_TECHNOLOGY
+        getNewsHeadlinesByCategory()
     }
 
-    fun getNewsHeadlinesByCategory(country: String, page: Int) {
+    fun getNewsHeadlinesByCategory() {
         viewModelScope.launch(Dispatchers.IO) {
             newsHeadlinesCategory.postValue(Resource.Loading())
             try {
@@ -87,7 +97,7 @@ class NewsViewModel(
     val searchedNews: MutableLiveData<Resource<APIResponse>> = MutableLiveData()
     val searchQuery: MutableLiveData<String> = MutableLiveData()
 
-    fun searchNews(page: Int) {
+    fun searchNews() {
         viewModelScope.launch(Dispatchers.IO) {
               searchedNews.postValue(Resource.Loading())
               try {

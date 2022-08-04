@@ -21,8 +21,7 @@ class ForYouFragment : Fragment() {
     private lateinit var binding: FragmentForYouBinding
     private lateinit var viewModel: NewsViewModel
     private lateinit var newsAdapter: NewsListAdapter
-    val country = "us"
-    val page = 1
+
 
 
     override fun onCreateView(
@@ -62,7 +61,7 @@ class ForYouFragment : Fragment() {
     }
 
     private fun viewNewsList() {
-        viewModel.getNewsHeadlines(country, page)
+        //viewModel.getNewsHeadlines(country, page)
         viewModel.newsHeadlines.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Success -> {

@@ -53,20 +53,22 @@ class SearchFragment : Fragment() {
         }
 
         initRecyclerView()
+        viewSearchedList()
 
         binding.searchIcon.setOnClickListener {
             Utils.hideKeyboard(requireActivity())
             if (!binding.etSearch.text.isNullOrEmpty()) {
                 val query = binding.etSearch.text.toString()
 
-                viewModel.searchNews(page)
-                viewSearchedList()
+                viewModel.searchNews()
+               // viewSearchedList()
             }
         }
 
         binding.searchTextLayout.setEndIconOnClickListener {
             //todo clear edittext values and empty recycler view
             binding.etSearch.text!!.clear()
+            viewModel.searchedNews.value = null
             newsAdapter.submitList(emptyList())
             binding.textView.visibility = View.GONE
         }
