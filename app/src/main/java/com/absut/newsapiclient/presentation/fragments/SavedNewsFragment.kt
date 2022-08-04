@@ -58,7 +58,7 @@ class SavedNewsFragment : Fragment() {
 
         //to get saved news from view model
         viewModel.getSavedNewsList().observe(viewLifecycleOwner) {
-            newsAdapter.differ.submitList(it)
+            newsAdapter.submitList(it)
         }
 
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
@@ -75,11 +75,12 @@ class SavedNewsFragment : Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
-                val article = newsAdapter.differ.currentList[position]
+                val article = newsAdapter.currentList[position]
                 viewModel.deleteNews(article)
                 Snackbar.make(view, "Deleted", Snackbar.LENGTH_SHORT)
                     .setAction("Undo") {
                         viewModel.saveNews(article)
+                       // newsAdapter.notifyItemInserted(viewHolder.adapterPosition)
                     }.setAnchorView((activity as MainActivity).bottomNav).show()
             }
 

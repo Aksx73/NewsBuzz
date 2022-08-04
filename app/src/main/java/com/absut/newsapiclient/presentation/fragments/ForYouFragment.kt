@@ -67,7 +67,7 @@ class ForYouFragment : Fragment() {
             when (it) {
                 is Resource.Success -> {
                     hideProgress()
-                    it.data?.let { newsAdapter.differ.submitList(it.articles.toList()) }
+                    it.data?.let { newsAdapter.submitList(it.articles.toList()) }
                 }
                 is Resource.Error -> {
                     hideProgress()

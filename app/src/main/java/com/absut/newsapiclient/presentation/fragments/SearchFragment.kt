@@ -67,7 +67,7 @@ class SearchFragment : Fragment() {
         binding.searchTextLayout.setEndIconOnClickListener {
             //todo clear edittext values and empty recycler view
             binding.etSearch.text!!.clear()
-            newsAdapter.differ.submitList(emptyList())
+            newsAdapter.submitList(emptyList())
             binding.textView.visibility = View.GONE
         }
 
@@ -119,7 +119,7 @@ class SearchFragment : Fragment() {
                 is Resource.Success -> {
                     hideProgress()
                     it.data?.let { apiResponse ->
-                        newsAdapter.differ.submitList(apiResponse.articles.toList())
+                        newsAdapter.submitList(apiResponse.articles.toList())
                         binding.textView.visibility = View.VISIBLE
                         binding.textView.text = "Results for \"${viewModel.searchQuery.value.toString()}\""
                     }
@@ -135,7 +135,7 @@ class SearchFragment : Fragment() {
                 }
                 is Resource.Loading -> {
                     binding.textView.visibility = View.GONE
-                    newsAdapter.differ.submitList(emptyList())  // -> to avoid showing previous search result while loading search for next query
+                    newsAdapter.submitList(emptyList())  // -> to avoid showing previous search result while loading search for next query
                     showProgress()
                 }
             }

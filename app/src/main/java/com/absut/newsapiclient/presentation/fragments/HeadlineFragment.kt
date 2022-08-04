@@ -104,7 +104,7 @@ class HeadlineFragment : Fragment() {
                 is Resource.Success -> {
                     hideProgress()
                     it.data?.let {
-                        newsAdapter.differ.submitList(it.articles.toList())
+                        newsAdapter.submitList(it.articles.toList())
                     }
                 }
                 is Resource.Error -> {

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.absut.newsapiclient.data.model.Article
 import com.absut.newsapiclient.databinding.NewsListItemBigBinding
@@ -12,14 +13,26 @@ import com.absut.newsapiclient.databinding.NewsListItemBinding
 import com.absut.newsapiclient.utils.Utils
 import com.bumptech.glide.Glide
 
-class NewsListAdapter(private val viewType: Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class NewsListAdapter(private val viewType: Int) : ListAdapter<Article,RecyclerView.ViewHolder>(callback) {
 
     companion object {
         const val VIEW_TYPE_REGULAR = 1
         const val VIEW_TYPE_BIG = 2
+
+        //DiffUtils
+        private val callback = object : DiffUtil.ItemCallback<Article>() {
+            override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
+                return oldItem.url == newItem.url
+            }
+
+            override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
+                return oldItem == newItem
+            }
+
+        }
     }
 
-    private val callback = object : DiffUtil.ItemCallback<Article>() {
+   /* private val callback = object : DiffUtil.ItemCallback<Article>() {
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
             return oldItem.url == newItem.url
         }
@@ -27,9 +40,9 @@ class NewsListAdapter(private val viewType: Int) : RecyclerView.Adapter<Recycler
         override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
             return oldItem == newItem
         }
-    }
+    }*/
 
-    val differ = AsyncListDiffer(this, callback)
+   // val differ = AsyncListDiffer(this, callback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == VIEW_TYPE_REGULAR) {
@@ -44,17 +57,13 @@ class NewsListAdapter(private val viewType: Int) : RecyclerView.Adapter<Recycler
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val article = differ.currentList[position]
+        val article = getItem(position)
 
         if (viewType == VIEW_TYPE_REGULAR) {
             (holder as NewsListViewHolder).bind(article)
         } else {
             (holder as NewsListViewHolder2).bind(article)
         }
-    }
-
-    override fun getItemCount(): Int {
-        return differ.currentList.size
     }
 
     override fun getItemViewType(position: Int): Int {
