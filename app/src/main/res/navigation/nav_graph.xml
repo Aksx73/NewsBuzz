@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/forYouFragment">
+
+    <fragment
+        android:id="@+id/HeadlineFragment"
+        android:name="com.absut.newsapiclient.presentation.fragments.HeadlineFragment"
+        android:label="Top Headlines"
+        tools:layout="@layout/fragment_headlines">
+        <action
+            android:id="@+id/action_HeadlineFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/SavedNewsFragment"
+        android:name="com.absut.newsapiclient.presentation.fragments.SavedNewsFragment"
+        android:label="Saved for later"
+        tools:layout="@layout/fragment_saved_news">
+        <action
+            android:id="@+id/action_SavedNewsFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forYouFragment"
+        android:name="com.absut.newsapiclient.presentation.fragments.ForYouFragment"
+        android:label="For you"
+        tools:layout="@layout/fragment_for_you">
+        <action
+            android:id="@+id/action_forYouFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.absut.newsapiclient.presentation.fragments.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.absut.newsapiclient.presentation.fragments.NewsDetailFragment"
+        android:label=""
+        tools:layout="@layout/fragment_news_detail">
+
+        <action
+            android:id="@+id/action_newsDetailFragment_to_forYouFragment"
+            app:destination="@id/forYouFragment" />
+        <action
+            android:id="@+id/action_newsDetailFragment_to_HeadlineFragment"
+            app:destination="@id/HeadlineFragment" />
+        <action
+            android:id="@+id/action_newsDetailFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_newsDetailFragment_to_SavedNewsFragment"
+            app:destination="@id/SavedNewsFragment" />
+    </fragment>
+
+</navigation>
