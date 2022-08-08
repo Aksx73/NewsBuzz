@@ -22,8 +22,6 @@ class ForYouFragment : Fragment() {
     private lateinit var viewModel: NewsViewModel
     private lateinit var newsAdapter: NewsListAdapter
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,7 +51,6 @@ class ForYouFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        //  newsAdapter = NewsListAdapter()
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = newsAdapter
@@ -88,11 +85,6 @@ class ForYouFragment : Fragment() {
     private fun hideProgress() {
         binding.progressCircular.visibility = View.INVISIBLE
     }
-
-    /*  override fun onDestroyView() {
-          super.onDestroyView()
-          _binding = null
-      }*/
 
 
 }

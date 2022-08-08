@@ -23,7 +23,6 @@ class NewsDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentNewsDetailBinding
     private lateinit var viewModel: NewsViewModel
-   // private val viewModel: NewsViewModel by activityViewModels()
 
     //  private val args by navArgs<NewsDetailFragmentArgs>()
 
@@ -54,8 +53,6 @@ class NewsDetailFragment : Fragment() {
             if (article != null)
             viewModel.saveNews(article)
             Snackbar.make(binding.fabSave, "Saved successfully", Snackbar.LENGTH_SHORT).show()
-           /* viewModel.deleteAllNews()
-             Snackbar.make(binding.fabSave, "Deleted all successfully", Snackbar.LENGTH_SHORT).show()*/
         }
 
     }

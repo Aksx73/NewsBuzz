@@ -21,4 +21,3 @@
 #-renamesourcefileattribute SourceFile
 
 -keep class com.absut.newsapiclient.data.model.*{ *; }
-

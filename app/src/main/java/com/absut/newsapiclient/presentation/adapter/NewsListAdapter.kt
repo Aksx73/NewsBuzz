@@ -32,18 +32,6 @@ class NewsListAdapter(private val viewType: Int) : ListAdapter<Article,RecyclerV
         }
     }
 
-   /* private val callback = object : DiffUtil.ItemCallback<Article>() {
-        override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem.url == newItem.url
-        }
-
-        override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem == newItem
-        }
-    }*/
-
-   // val differ = AsyncListDiffer(this, callback)
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == VIEW_TYPE_REGULAR) {
             val binding =

@@ -77,13 +77,11 @@ class SavedNewsFragment : Fragment() {
                 val position = viewHolder.adapterPosition
                 val article = newsAdapter.currentList[position]
                 viewModel.deleteNews(article)
-                Snackbar.make(view, "Deleted", Snackbar.LENGTH_SHORT)
+                Snackbar.make(view, "Successfully deleted", Snackbar.LENGTH_LONG)
                     .setAction("Undo") {
                         viewModel.saveNews(article)
-                       // newsAdapter.notifyItemInserted(viewHolder.adapterPosition)
                     }.setAnchorView((activity as MainActivity).bottomNav).show()
             }
-
         }
 
         ItemTouchHelper(itemTouchHelperCallback).apply {

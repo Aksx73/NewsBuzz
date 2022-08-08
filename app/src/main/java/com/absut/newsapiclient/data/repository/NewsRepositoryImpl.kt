@@ -42,19 +42,6 @@ class NewsRepositoryImpl(
         return newsLocalDataSource.getSavedArticles()
     }
 
-
-    /**
-     * Converts Retrofit response object to Resource of response to manage state
-     * **/
-    /* fun responseToResource(response: Response<APIResponse>): Resource<APIResponse> {
-         if (response.isSuccessful) {
-             response.body()?.let {
-                 return Resource.Success(it)
-             }
-         }
-         return Resource.Error(response.message())
-     }*/
-
     /**
      * Converts Retrofit response object to Resource of response to manage state
      * **/

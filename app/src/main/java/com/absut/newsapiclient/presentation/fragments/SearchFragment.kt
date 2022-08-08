@@ -25,8 +25,6 @@ class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var viewModel: NewsViewModel
     private lateinit var newsAdapter: NewsListAdapter
-    val country = Constants.QUERY_COUNTRY
-    val page = Constants.QUERY_PAGE
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -76,44 +74,11 @@ class SearchFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        //  newsAdapter = NewsListAdapter()
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = newsAdapter
         }
     }
-
-
-    /*  private fun setSearchView() {
-          binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-              override fun onQueryTextSubmit(query: String?): Boolean {
-                  viewModel.searchNews(country,query.toString(),page)
-                  viewSearchedList()
-
-                  return false
-              }
-
-              override fun onQueryTextChange(newText: String?): Boolean {
-                  MainScope().launch {
-                      delay(2000)
-                      viewModel.searchNews(country,newText.toString(),page)
-                      viewSearchedList()
-                  }
-                  return false
-              }
-          })
-
-          binding.searchView.setOnCloseListener(object : SearchView.OnCloseListener{
-              override fun onClose(): Boolean {
-                  initRecyclerView()
-                  viewNewsList()
-
-                  return false
-              }
-
-          })
-
-      }*/
 
     private fun viewSearchedList() {
         viewModel.searchedNews.observe(viewLifecycleOwner) {
@@ -152,4 +117,34 @@ class SearchFragment : Fragment() {
         binding.progressCircular.visibility = View.INVISIBLE
     }
 
+    /*  private fun setSearchView() {
+       binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+           override fun onQueryTextSubmit(query: String?): Boolean {
+               viewModel.searchNews(country,query.toString(),page)
+               viewSearchedList()
+
+               return false
+           }
+
+           override fun onQueryTextChange(newText: String?): Boolean {
+               MainScope().launch {
+                   delay(2000)
+                   viewModel.searchNews(country,newText.toString(),page)
+                   viewSearchedList()
+               }
+               return false
+           }
+       })
+
+       binding.searchView.setOnCloseListener(object : SearchView.OnCloseListener{
+           override fun onClose(): Boolean {
+               initRecyclerView()
+               viewNewsList()
+
+               return false
+           }
+
+       })
+
+   }*/
 }

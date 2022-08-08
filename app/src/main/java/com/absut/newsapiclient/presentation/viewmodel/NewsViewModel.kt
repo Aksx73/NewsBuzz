@@ -37,7 +37,6 @@ class NewsViewModel(
     //////////////////////////////get news headlines //////////////////////////////////
 
     val newsHeadlines: MutableLiveData<Resource<APIResponse>> = MutableLiveData()
-   // val newsHeadlines: MutableLiveData<Resource<List<Article>>> = MutableLiveData()
 
      fun getNewsHeadlines(country: String, page: Int) = viewModelScope.launch(Dispatchers.IO) {
          newsHeadlines.postValue(Resource.Loading())
@@ -52,13 +51,6 @@ class NewsViewModel(
              newsHeadlines.postValue(Resource.Error(e.message.toString()))
          }
      }
-
-   /* fun getNewsHeadlines(country: String, page: Int) {
-        getNewsHeadlinesUseCase(country, page).onEach {
-            newsHeadlines.value = it
-        }.launchIn(viewModelScope)
-    }*/
-
 
     //////////////////////////////get news headlines by category //////////////////////////////////
 

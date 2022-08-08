@@ -22,9 +22,6 @@ class HeadlineFragment : Fragment() {
     private lateinit var viewModel: NewsViewModel
     private lateinit var newsAdapter: NewsListAdapter
 
-    private var selectedChip = Constants.QUERY_CATEGORY_TECHNOLOGY
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -64,7 +61,6 @@ class HeadlineFragment : Fragment() {
                 R.id.chip_science -> {
                     viewModel.currentCategory.value = Constants.QUERY_CATEGORY_SCIENCE
                     viewModel.getNewsHeadlinesByCategory()
-
                 }
                 R.id.chip_sports -> {
                     viewModel.currentCategory.value = Constants.QUERY_CATEGORY_SPORTS
@@ -85,11 +81,9 @@ class HeadlineFragment : Fragment() {
             }
         }
 
-
     }
 
     private fun initRecyclerView() {
-        //  newsAdapter = NewsListAdapter()
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = newsAdapter
@@ -128,8 +122,4 @@ class HeadlineFragment : Fragment() {
         binding.progressCircular.visibility = View.INVISIBLE
     }
 
-/*  override fun onDestroyView() {
-      super.onDestroyView()
-      _binding = null
-  }*/
 }
