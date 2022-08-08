@@ -59,6 +59,8 @@ class SavedNewsFragment : Fragment() {
         //to get saved news from view model
         viewModel.getSavedNewsList().observe(viewLifecycleOwner) {
             newsAdapter.submitList(it)
+            if(newsAdapter.itemCount == 0) binding.emptyView.visibility = View.VISIBLE
+            else binding.emptyView.visibility = View.GONE
         }
 
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(

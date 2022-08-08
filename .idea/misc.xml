@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/StudioProjects/NewsApiClient/app/src/main/res/drawable/ic_bookmark_black_24dp.xml" value="0.2415" />
+        <entry key="..\:/StudioProjects/NewsApiClient/app/src/main/res/drawable/ic_bookmarks_black_24dp.xml" value="0.158" />
+        <entry key="..\:/StudioProjects/NewsApiClient/app/src/main/res/drawable/ic_language_black_24dp.xml" value="0.158" />
+        <entry key="..\:/StudioProjects/NewsApiClient/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.158" />
         <entry key="..\:/StudioProjects/NewsApiClient/app/src/main/res/drawable/ic_newspaper_black_24dp.xml" value="0.2415" />
+        <entry key="..\:/StudioProjects/NewsApiClient/app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.158" />
         <entry key="..\:/StudioProjects/NewsApiClient/app/src/main/res/drawable/rounded_corner_bkg.xml" value="0.2315" />
         <entry key="..\:/StudioProjects/NewsApiClient/app/src/main/res/drawable/rounded_corner_small_bkg.xml" value="0.2315" />
         <entry key="..\:/StudioProjects/NewsApiClient/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
