@@ -1,3 +1,4 @@
+[![Surface-Pro-8-1.png](https://i.postimg.cc/yxPXKrjt/Surface-Pro-8-1.png)](https://postimg.cc/jnDJQcG4)
 # NewsBuzz
 #### A simple news app build using MVVM architecture.
 
