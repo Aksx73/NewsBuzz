@@ -77,6 +77,7 @@ class SearchFragment : Fragment() {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = newsAdapter
+            setHasFixedSize(true)
         }
     }
 

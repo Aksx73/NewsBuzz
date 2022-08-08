@@ -54,6 +54,8 @@ class SavedNewsFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        newsAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+
         initRecyclerView()
 
         //to get saved news from view model
@@ -95,6 +97,7 @@ class SavedNewsFragment : Fragment() {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = newsAdapter
+            setHasFixedSize(true)
         }
 
     }

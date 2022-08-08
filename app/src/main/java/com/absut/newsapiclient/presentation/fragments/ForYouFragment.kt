@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.absut.newsapiclient.R
 import com.absut.newsapiclient.databinding.FragmentForYouBinding
 import com.absut.newsapiclient.presentation.MainActivity
@@ -45,7 +46,10 @@ class ForYouFragment : Fragment() {
 
         }
 
+        newsAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+
         initRecyclerView()
+
         viewNewsList()
 
     }
@@ -54,6 +58,7 @@ class ForYouFragment : Fragment() {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = newsAdapter
+            setHasFixedSize(true)
         }
     }
 

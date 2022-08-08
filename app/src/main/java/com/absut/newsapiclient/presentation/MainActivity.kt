@@ -1,6 +1,7 @@
 package com.absut.newsapiclient.presentation
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
@@ -73,8 +74,9 @@ class MainActivity : AppCompatActivity() {
             } else bottomNav.visibility = View.VISIBLE
         }
 
-
     }
+
+
 
 
     override fun onSupportNavigateUp(): Boolean {

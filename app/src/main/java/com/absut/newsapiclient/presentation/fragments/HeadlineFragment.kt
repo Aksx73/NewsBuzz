@@ -87,6 +87,7 @@ class HeadlineFragment : Fragment() {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = newsAdapter
+            setHasFixedSize(true)
         }
     }
 
