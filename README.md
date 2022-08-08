@@ -1,8 +1,9 @@
 # NewsBuzz
 #### A simple news app build using MVVM architecture.
 
-**Download and test latest version 👇** <br>
-[![OnlyNews](https://img.shields.io/badge/OnlyNews-APK-red.svg?style=for-the-badge&logo=android)](add_apk_url)
+**Download and test latest version 👇**
+
+[![OnlyNews](https://img.shields.io/badge/NewsBuzz-APK-brightgreen.svg?style=for-the-badge&logo=android)](https://github.com/Aksx73/NewsBuzz/raw/master/app/release/app-release.apk)
 
 
 ## General info
