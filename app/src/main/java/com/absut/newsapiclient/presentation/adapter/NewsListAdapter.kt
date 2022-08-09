@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.absut.newsapiclient.data.model.Article
 import com.absut.newsapiclient.databinding.NewsListItemBigBinding
 import com.absut.newsapiclient.databinding.NewsListItemBinding
 import com.absut.newsapiclient.utils.Utils
-import com.bumptech.glide.Glide
 
 class NewsListAdapter(private val viewType: Int) : ListAdapter<Article,RecyclerView.ViewHolder>(callback) {
 
@@ -61,21 +62,22 @@ class NewsListAdapter(private val viewType: Int) : ListAdapter<Article,RecyclerV
 
     inner class NewsListViewHolder(val binding: NewsListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(articleDto: Article) {
-            binding.txtTitle.text = articleDto.title
-            binding.txtSource.text = articleDto.source?.name
+        fun bind(article: Article) {
+            binding.txtTitle.text = article.title
+            binding.txtSource.text = article.source?.name
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                binding.txtDate.text = articleDto.publishedAt?.let {Utils.getFormattedDate(it)}
+                binding.txtDate.text = article.publishedAt?.let {Utils.getFormattedDate(it)}
             } else {
-                binding.txtDate.text = articleDto.publishedAt
+                binding.txtDate.text = article.publishedAt
             }
 
-
-            Glide.with(binding.imageView.context).load(articleDto.urlToImage).into(binding.imageView)
+            binding.imageView.load(article.urlToImage){
+                crossfade(true)
+            }
 
             binding.root.setOnClickListener {
                 itemClickListener?.let {
-                    it(articleDto)
+                    it(article)
                 }
             }
         }
@@ -83,16 +85,18 @@ class NewsListAdapter(private val viewType: Int) : ListAdapter<Article,RecyclerV
 
     inner class NewsListViewHolder2(val binding: NewsListItemBigBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(articleDto: Article) {
-            binding.txtTitle.text = articleDto.title
-            binding.txtSource.text = articleDto.source?.name
-            binding.txtDesc.text = articleDto.description
+        fun bind(article: Article) {
+            binding.txtTitle.text = article.title
+            binding.txtSource.text = article.source?.name
+            binding.txtDesc.text = article.description
 
-            Glide.with(binding.imageView.context).load(articleDto.urlToImage).into(binding.imageView)
+            binding.imageView.load(article.urlToImage){
+                crossfade(true)
+            }
 
             binding.root.setOnClickListener {
                 itemClickListener?.let {
-                    it(articleDto)
+                    it(article)
                 }
             }
         }
