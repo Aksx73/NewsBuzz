@@ -24,6 +24,7 @@ App is organized in MVVM architecture. Whole app is organized with intent to cre
     - [ViewDataBinding](https://developer.android.com/topic/libraries/view-binding) - Generates a binding class for each XML layout file present in that module and allows you to more easily write code that interacts with views.
     - [Room](https://developer.android.com/topic/libraries/architecture/room) - SQLite object mapping library.
 - [Retrofit](https://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java.
+- [Coil-kt](https://coil-kt.github.io/coil/) - An image loading library for Android backed by Kotlin Coroutines.
 - [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android.
 
 
